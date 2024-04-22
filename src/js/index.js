@@ -12,4 +12,6 @@ initAntiCheat(debug.dev, (cheat) => {
 });
 
 const gameController = new GameController();
-gameController.start();
+setTimeout(() => {
+	gameController.start();
+}, 1000);
