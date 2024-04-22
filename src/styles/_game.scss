@@ -1,0 +1,60 @@
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+
+.page {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.playground {
+	position: relative;
+	width: 80vh;
+	height: 80vh;
+	aspect-ratio: 1;
+	background: #eee;
+
+	.layer {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+
+		&--ground {
+			background: rgb(141, 56, 56);
+		}
+
+		&--sand {
+			.grid {
+				width: 100%;
+				height: 100%;
+			}
+
+			.cell {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-right: 1px solid rgba(#000, 0.2);
+				border-bottom: 1px solid rgba(#000, 0.2);
+				background: sandybrown;
+				font-size: 12px;
+				text-align: center;
+				color: rgba(#000, 0.2);
+
+				&.dug {
+					background: transparent;
+				}
+			}
+		}
+	}
+}

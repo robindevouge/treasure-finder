@@ -6,17 +6,26 @@
     <title>Treasure hunt</title>
   </head>
   <body>
-    <div class="terrain">
-      <div class="layer layer--players">
-        <div class="player">
-          <div class="player__shovel"></div>
+    <!-- <div class="page page--intro">
+      <div class="page__container"></div>
+    </div> -->
+
+    <div class="page page--game">
+      <div class="playground">
+        <div class="layer layer--ground">
+          <div class="chest"></div>
         </div>
+        <div class="layer layer--sand"></div>
+        <div class="layer layer--players">
+          <div class="player">
+            <div class="player__shovel"></div>
+          </div>
+        </div>
+
       </div>
-      <div class="layer layer--sand"></div>
-      <div class="layer layer--ground">
-        <div class="chest"></div>
-      </div>
+      <div class="ui"></div>
     </div>
+
     <script type="module" src="./js/main.ts"></script>
   </body>
 </html>
