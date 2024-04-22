@@ -5,6 +5,7 @@ class Cell {
 		this.grid = grid;
 		this.x = x;
 		this.y = y;
+		this.state = 'DEFAULT';
 
 		this.init();
 	}
@@ -20,14 +21,18 @@ class Cell {
 	}
 
 	dig() {
-		this.element.classList.add('dug');
+		if (this.state === 'DEFAULT') {
+			this.state = 'DUG';
+			this.element.classList.add('dug');
+		}
 	}
 }
 
 export class Grid {
-	constructor(container) {
-		this.size = config.grid.size;
+	constructor(gameController) {
+		this.gameController = gameController;
 		this.container = document.querySelector(config.grid.containerSelector);
+		this.size = config.grid.size;
 		this.cells = [];
 
 		this.init();
@@ -56,6 +61,14 @@ export class Grid {
 
 	getCellByCoords(x, y) {
 		const rect = this.element.getBoundingClientRect();
+		// const rect = {
+		// 	left: 0,
+		// 	top: 0,
+		// 	right: this.element.offsetWidth,
+		// 	bottom: this.element.offsetHeight,
+		// 	width: this.element.offsetWidth,
+		// 	height: this.element.offsetHeight,
+		// };
 
 		if (x < rect.left || x > rect.right || y < rect.top || y > rect.bottom) {
 			return null;

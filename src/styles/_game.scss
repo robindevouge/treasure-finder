@@ -31,10 +31,13 @@ body {
 		height: 100%;
 
 		&--ground {
+			z-index: 1;
 			background: rgb(141, 56, 56);
 		}
 
 		&--sand {
+			z-index: 2;
+
 			.grid {
 				width: 100%;
 				height: 100%;
@@ -53,6 +56,52 @@ body {
 
 				&.dug {
 					background: transparent;
+				}
+			}
+		}
+
+		&--players {
+			z-index: 3;
+
+			.player {
+				width: 0;
+				height: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+
+				&::after {
+					content: '';
+					display: block;
+					width: 2vh;
+					aspect-ratio: 0.5;
+					position: absolute;
+					bottom: 0;
+					transform: translateX(-50%);
+				}
+
+				&--1 {
+					&::after {
+						background: #f00;
+					}
+				}
+
+				&--2 {
+					&::after {
+						background: #00f;
+					}
+				}
+
+				&--3 {
+					&::after {
+						background: #0f0;
+					}
+				}
+
+				&--4 {
+					&::after {
+						background: #ff0;
+					}
 				}
 			}
 		}
